@@ -1,16 +1,21 @@
 
 public class Student {
+    private static double contribution;
+    
     private String studentID;
     private String name;
     private int quizzesTaken;
     private int totalScore;
 
     public Student() {
+        this("","");
+        //studentID = "";
+        //name = "";
     }
 
-    public Student(String sID, String n) {
-        studentID = sID;
-        name = n;
+    public Student(String studentID, String name) {
+        this.studentID = studentID;
+        this.name = name;
     }
 
     public String getStudentID() {
@@ -50,5 +55,20 @@ public class Student {
         else
            return 0;
     }
+    
+    
+    public static double getContribution(){
+        return contribution;
+    }
+    
+    public static void setContribution(double percetage){
+        contribution = percetage;
+    }
+    
+    
+    public double calculateCourseworkMark(){
+        return ((double)totalScore / (quizzesTaken *10) * contribution) * 100;
+    }
+    
         
 }
